@@ -1,4 +1,4 @@
- Is this the same across store locations?
+ --Is this the same across store locations?
 
 select distinct(st.store_location),
  sum((p.Product_Price)-(p.Product_Cost)) as profit
@@ -8,7 +8,7 @@ select distinct(st.store_location),
  group by  st.Store_Location
 order by profit desc;
 
-Which product categories drive the biggest profits?
+--Which product categories drive the biggest profits?
 
 select distinct(p.Product_Category),
  sum((p.Product_Price)-(p.Product_Cost)) as profit
@@ -18,9 +18,9 @@ select distinct(p.Product_Category),
  group by  p.Product_Category
 order by profit desc;
 
-Can you find any seasonal trends or patterns in the sales data?
+--Can you find any seasonal trends or patterns in the sales data?
 
- -jan to march q1
+ --jan to march q1
  
  select  sum(Units*Product_Price) as Q1_total_sales from `gc01-377205.Maven_toys.sale` as s
  join `gc01-377205.Maven_toys.Products` p  using(product_id)
@@ -44,7 +44,7 @@ Can you find any seasonal trends or patterns in the sales data?
  join `gc01-377205.Maven_toys.Products` p  using(product_id)
  where date between '2017-10-01' and '2017-12-31'
  
-Are sales being lost with out-of-stock products at certain locations?
+--Are sales being lost with out-of-stock products at certain locations?
 
   select 
   st.Store_Name,
@@ -68,7 +68,7 @@ where i.Stock_On_Hand=0
  order by total_sales desc;
 --question 4
 
-How much money is tied up in inventory at the toy stores? How long will it last?
+--How much money is tied up in inventory at the toy stores? How long will it last?
 
 SELECT 
 Store_Name,
